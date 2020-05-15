@@ -43,40 +43,94 @@
     </div>
 </nav>
 
-<div id="loginModal" class="modal fade" role="dialog">
+<div id="reserveModal" class="modal fade" role="dialog">
     <div class="modal-dialog modal-lg" role="content">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Login</h4>
+                <h4 class="modal-title">Reserve Table</h4>
                 <button type="button" class="close" data-dismiss="modal"> &times; </button> 
             </div>
             <div class="modal-body">
                 <form>
-                    <!-- form added -->
-                    <div class="form-row">
-                        <div class="form-group col-sm-4">
+                    <!-- <div class="form-group col-sm-4">
                         <label for="exampleInputEmail" class="sr-only">Email</label>
                         <input type="email" class="form-control form-control-sm mr-1" id="exampleInputEmail" name="exampleInputEmail" placeholder="Email">
                         </div>
-            
+                    
                         <div class="form-group col-sm-4">
                         <label for="exampleInputPassword3" class="sr-only">Password</label>
                         <input type="password" class="form-control form-control-sm mr-1" id="exampleInputPassword3" name="exampleInputPassword3" placeholder="Password">
                         </div>
-
+                    
                         <div class="col-sm-auto">
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox">
                                 <label class="form-check-label">Remember Me</label>
                             </div>
+                        </div> -->
+                    <!-- form added -->
+                    <div class="form-group row">
+                        <label for="numberofguest" class="col-12 col-md-2 col-form-label" id="Reserve">Number of Guests</label>
+                        <div class="col-12 col-md-8">
+                            <!-- Radio buttons -->
+                            <div class="form-check form-check-inline">
+                               <input class="form-check-input" type="radio" name="reserve1" id="reserve1" value="option1">
+                               <label class="form-check-label" for="inlineRadio1">1</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                               <input class="form-check-input" type="radio" name="reserve2" id="reserve2" value="option2">
+                               <label class="form-check-label" for="inlineRadio1">2</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                               <input class="form-check-input" type="radio" name="reserve3" id="reserve3" value="option3">
+                               <label class="form-check-label" for="inlineRadio1">3</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                               <input class="form-check-input" type="radio" name="reserve4" id="reserve4" value="option4">
+                               <label class="form-check-label" for="inlineRadio1">4</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                               <input class="form-check-input" type="radio" name="reserve5" id="reserve5" value="option5">
+                               <label class="form-check-label" for="inlineRadio1">5</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                               <input class="form-check-input" type="radio" name="reserve6" id="reserve6" value="option6">
+                               <label class="form-check-label" for="inlineRadio1">6</label>
+                            </div>
+                            <!-- Radio Buttons end -->
                         </div>
                     </div>
-                        <!-- Button added -->
-                    <div class="form-row">
-                        <button type="button" class="btn btn-secondary btn-sm ml-auto" data-dismiss="modal">Cancel</button>
-                        <button type="submit" class="btn btn-primary btn-sm ml-1">Sign In</button>
+
+                    <div class="form-group row">
+                        <label for="section" class="col-12 col-md-2 col-form-label" id="section">Section</label>
+                        <div class="col-12 col-md-8">
+                        <div class="btn-group-toggle" data-toggle="buttons">
+                            <label class="btn btn-success btn-sm active">
+                              <input type="radio" name="options" id="option1" checked> Non-Smoking
+                            </label>
+                            <label class="btn btn-danger btn-sm">
+                              <input type="radio" name="options" id="option2"> Smoking
+                            </label>
+                        </div>
+                        </div>
                     </div>
-                    <!-- Button end -->
+
+                    <div class="form-group row">
+                       <label for="schedule" class=" col-12 col-md-2 col-form-label">Date and Time</label>
+                       <div class="col-12 col-md-3">
+                           <input type="datetime" class="form-control" id="date" name="date" placeholder="Date">
+                       </div>
+                       <div class="col-12 col-md-3">
+                           <input type="datetime" class="form-control" id="time" name="time" placeholder="Time">
+                       </div>
+                    </div>  
+
+                    <div class="form-group row">
+                        <div class="offset-md-2 col-md-10">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Reserve</button>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
@@ -94,11 +148,15 @@
                     <img src="img/logo.png" class="img-fluid">
                 </div>
                 <div class="col-12 col-sm align-self-center">
-                    <!-- Tooltip added -->
-                    <a role="button" class="btn  btn-block nav-link btn-warning" data-toggle="tooltip" data-html="true" 
-                    title="Or Call Us at: +852 12345678" data-placement="bottom"
-                    href="#reserveTable">Reserve A Table</a>
-                    <!-- Tooltip end -->
+
+                    <span class="navbar-text">
+                        <a data-toggle="modal" data-target="#reserveModal" 
+                        role="button" class="btn  btn-block nav-link btn-warning">
+                        Reserve Table
+                        </a>
+                    </span>
+                    <!-- Tooltip added
+                    <a role="button" class="btn  btn-block nav-link btn-warning">Reserve Table</a>  -->
                 </div>
             </div>
         </div>
@@ -295,15 +353,12 @@
            </div>
         </div>
     </footer>
+
     <!-- JQuery first, then Pooper.js then Bpotstrap Js. -->
     <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script src="node_modules/popper.js/dist/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('[data-toogle="tooltip"]').tooltip();
-        });
-    </script>
+    
 </body>
 
 </html>
